@@ -4,6 +4,7 @@ const http = require("http");
 const cors = require("cors");
 const { Server} = require("socket.io");
 const { Socket } = require("dgram");
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 
@@ -30,6 +31,4 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(4000, () => {
-    console.log("server is runing");
-});
+server.listen(port, () => console.log('server started on port', port));
